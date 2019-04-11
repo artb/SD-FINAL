@@ -1,21 +1,9 @@
 import java.rmi.*;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.Naming;
-import java.rmi.Remote;
 
 public class Server {
-  Server(String ip){
-    try{
-      System.setProperty("java.rmi.server.hostname", "192.168.1.142");
-      LocateRegistry.createRegistry(1099);
-      ExampleServer es = new ExampleServer();
-      Naming.bind("Moedas", (Remote) es);
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-  }
-
-  public static void main(String[] args) {
-    new Server(args[0]);
+  public static void main(String[] args) throws RemoteException, java.net.MalformedURLException {
+    ExampleServer es = new ExampleServer();
+    Naming.rebind("rmi://localhost/Example", es);
+    System.out.println("Running server in rmi://localhost/Example");
   }
 }

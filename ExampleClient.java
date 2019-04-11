@@ -66,7 +66,34 @@ public class ExampleClient {
               }
           }
       });
+
+      janelaEditar.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+
+              panelEdit.setLayout(new BoxLayout(panelEdit,BoxLayout.Y_AXIS));
+              panelEdit.add(num);
+              panelEdit.add(Box.createRigidArea(new Dimension(0, 20)));
+              panelEdit.add(inputID);
+              panelEdit.add(Box.createRigidArea(new Dimension(0, 20)));
+              panelEdit.add(newVal);
+              panelEdit.add(Box.createRigidArea(new Dimension(0, 20)));
+              panelEdit.add(inputNCotacao);
+              panelEdit.add(Box.createRigidArea(new Dimension(0, 20)));
+              panelEdit.add(editarJanelaEditar);
+              panelEdit.add(apagar);
+
+              // Display the window.
+              frame2.setLocation(500,500);
+              frame2.pack();
+              frame2.setVisible(true);
+              frame2.toFront();
+
+          }
+
+      });
       panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+
+
 
       // Display the window.
       frame.setLocation(500,500);
